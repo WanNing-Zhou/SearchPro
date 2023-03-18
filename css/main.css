@@ -1,4 +1,148 @@
 body{
-    background-color: #CCCCCC;
+    background: #1c2e40;
 }
 
+#header{
+    background-color: yellow;
+}
+
+#logoBox{
+    background-color: aqua;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    display: flow-root;
+    transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover{
+    transform: scale(0.8);
+}
+
+#logo .bubble {
+    /* 其他样式不变 */
+    background: linear-gradient(to bottom right, #2c3e50, #34495e); /* 渐变背景 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background: #2c3e50;
+    overflow: hidden;
+    -webkit-transform: translate(-50%, -50%) rotate(-10deg);
+    transform: translate(-50%, -50%) rotate(-10deg);
+    -webkit-animation: rock 4s infinite ease-in-out;
+    animation: rock 4s infinite ease-in-out;
+    border: 3px solid #2c3e50;
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+/* 给水泡添加一个高光效果 */
+#logo .bubble span {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: white; /* 高光颜色 */
+    opacity: 0.3; /* 高光透明度 */
+}
+
+#logo .bubble:before {
+    content: '';
+    position: absolute;
+    background: #2980b9;
+    width: 80px;
+    height: 30px;
+    bottom: 0;
+    display: block;
+    border-top-right-radius: 50%;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    -webkit-animation: curve 4s infinite ease-in-out;
+    animation: curve 4s infinite ease-in-out;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+    background-clip: border-box;
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+    box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.4);
+}
+#logo .bubble:after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 24px;
+    top: -15px;
+    right: 0;
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    display: block;
+    border-top-left-radius: 50%;
+}
+#logo .shadow {
+    position: absolute;
+    top: calc(50% + 45px);
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    height: 20px;
+    width: 80px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    -webkit-animation: shadow-rock 4s infinite ease-in-out;
+    animation: shadow-rock 4s infinite ease-in-out;
+}
+@-webkit-keyframes rock {
+    50% {
+        -webkit-transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
+        transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
+    }
+}
+@keyframes rock {
+    50% {
+        -webkit-transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
+        transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
+    }
+}
+@-webkit-keyframes shadow-rock {
+    50% {
+        left: calc(50% + 10px);
+    }
+}
+@keyframes shadow-rock {
+    50% {
+        left: calc(50% + 10px);
+    }
+}
+@-webkit-keyframes curve {
+    25%, 75% {
+        border-top: 2px solid rgba(255, 255, 255, 0);
+    }
+    50% {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 0;
+        border-top: 2px solid rgba(255, 255, 255, 0.5);
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg);
+    }
+}
+@keyframes curve {
+    25%, 75% {
+        border-top: 2px solid rgba(255, 255, 255, 0);
+    }
+    50% {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 0;
+        border-top: 2px solid rgba(255, 255, 255, 0.5);
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg);
+    }
+}
