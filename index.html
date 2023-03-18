@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="无趣起始是一个简洁起始页面,这里可以提供更多简洁且方便的使用">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0, user-scalable=no">
     <title>不知道是什么的起始页</title>
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/main.css">
-
 </head>
 <body>
 <!-- header部分用来显示时间天气等内容   -->
 <header id="header">
-    <span>2023年3月18日</span>
-    <span>城市</span>
-    <span>天气晴</span>
-    <span>图标</span>
-    <span>14:24</span>
+    <div id="weatherInfo">
+        <span class="city">城市</span>
+        <span class="weather">天气晴</span>
+        <span>图标</span>
+        <span class="temperature">温度:</span>
+        <span class="headerDate">2023年3月18日</span>
+        <span class="headerTime">14:24</span>
+    </div>
 </header>
 
 <!--contain部分是用来展示文-->
@@ -33,7 +36,7 @@
 
 <!--footer 部分标注备案号 -->
 <footer></footer>
-
-
+<!--文件头部的js代码-->
+<script src="./js/header.js"></script>
 </body>
 </html>
