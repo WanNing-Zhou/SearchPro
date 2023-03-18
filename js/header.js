@@ -30,7 +30,7 @@
             .then(json => {
                 city = json.regeocode.addressComponent.city
                 cityCode = json.regeocode.addressComponent.adcode
-                // console.log(json.regeocode)
+                console.log(json.regeocode)
                 // console.log('city',city)
                 // console.log(json)
                 console.log(cityCode)
