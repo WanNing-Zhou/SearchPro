@@ -8,6 +8,7 @@
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/fonts/iconfont.css">
+    <link rel="stylesheet" href="./css/container.css">
 </head>
 <body>
 <!-- header部分用来显示时间天气等内容   -->
@@ -33,11 +34,29 @@
 
         </div>
     </div>
+
+    <div class="content">
+        <div class="time">
+            <div class="innertime">
+                <span id="h"></span>:<span id="m"></span>
+            </div>
+        </div>
+        <div class="searchBox">
+            <div class="searching">
+                <input type="text" class="search" placeholder="请输入关键词">
+                <!-- 创建一个button元素 -->
+                <button type="submit" class="search">搜索</button>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <!--footer 部分标注备案号 -->
 <footer></footer>
 <!--文件头部的js代码-->
+<script src="./js/container.js"></script>
 <script src="./js/header.js"></script>
+
 </body>
 </html>
