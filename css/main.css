@@ -8,6 +8,13 @@ html, body {
     /*background: #1c2e40;*/
     background: black;
 }
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.woff2?t=1679141470262') format('woff2'),
+    url('iconfont.woff?t=1679141470262') format('woff'),
+    url('iconfont.ttf?t=1679141470262') format('truetype');
+}
 #container {
     min-height: 100%;
     position: relative;
