@@ -1,22 +1,49 @@
-body{
-    background: #1c2e40;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+    /*background: #1c2e40;*/
+    background: black;
+}
+#container {
+    min-height: 100%;
+    position: relative;
+}
+#header {
+    color: white;
+    height: 8%;
+    position: relative;
+    display: flow-root;
+}
+#content {
+    height: calc(84% - 16px); /* 减去边框宽度 */
+    border-top: solid #ccc;
+    border-bottom: solid #ccc;
+    position: relative;
+}
+#footer {
+    position: relative;
+    height: 8%;
 }
 
-#header{
-    background-color: yellow;
-}
 
 #logoBox{
-    background-color: aqua;
-    width: 400px;
-    height: 400px;
+    /*background-color: aqua;*/
     position: absolute;
+    left: 50%;
+    top: 23%;
+    transform: translateX(-50%);
+    width: 7.5rem;
+    height: 7.5rem;
     display: flow-root;
     transition: transform 0.3s ease-in-out;
 }
 
 #logo:hover{
-    transform: scale(0.8);
+    /*transform: scale(0.8);*/
 }
 
 #logo .bubble {
@@ -25,8 +52,8 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 80px;
-    width: 80px;
+    height: 5rem;
+    width: 5rem;
     border-radius: 50%;
     background: #2c3e50;
     overflow: hidden;
@@ -35,27 +62,34 @@ body{
     -webkit-animation: rock 4s infinite ease-in-out;
     animation: rock 4s infinite ease-in-out;
     border: 3px solid #2c3e50;
-    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.1), 0.3rem 0.5rem 2rem  rgba(41, 128, 185, 0.97);
+
+    transition: transform 1s;
+}
+
+#logo .bubble:hover{
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);
 }
 
 /* 给水泡添加一个高光效果 */
 #logo .bubble span {
     position: absolute;
-    top: -20px;
-    left: -20px;
-    width: 120px;
-    height: 120px;
+    top: -1.25rem;
+    left: -1.25rem;
+    width: 7.5rem;
+    height: 7.5rem;
     border-radius: 50%;
-    background-color: white; /* 高光颜色 */
-    opacity: 0.3; /* 高光透明度 */
+    /*background-color: white; !* 高光颜色 *!*/
+    opacity: 10%; /* 高光透明度 */
+
 }
 
 #logo .bubble:before {
     content: '';
     position: absolute;
-    background: #2980b9;
-    width: 80px;
-    height: 30px;
+    background: rgba(41, 128, 185, 0.97);/*#2980b9*/
+    width: 5rem;
+    height: 2rem;
     bottom: 0;
     display: block;
     border-top-right-radius: 50%;
@@ -67,59 +101,60 @@ body{
     background-clip: border-box;
     -webkit-transform: rotate(-10deg);
     transform: rotate(-10deg);
-    box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 1rem 1.25rem rgba(41, 128, 185, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.4);
 }
 #logo .bubble:after {
     content: '';
     position: absolute;
     background: rgba(255, 255, 255, 0.1);
-    width: 50px;
-    height: 24px;
-    top: -15px;
+    width: 3.12rem;
+    height: 1.5rem;
+    top: -0.96rem;
     right: 0;
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
+    -webkit-filter: blur(0.15);
+    filter: blur(0.75);
     display: block;
     border-top-left-radius: 50%;
 }
 #logo .shadow {
     position: absolute;
-    top: calc(50% + 45px);
+    top: calc(50% + 2.8rem);
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     -webkit-filter: blur(2px);
     filter: blur(2px);
-    height: 20px;
-    width: 80px;
+    height: 1.25rem;
+    width: 5rem;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
+    /*background: rgba(0, 0, 0, 0.2);*/
+    background: rgba(41, 128, 185, 0.18);
     z-index: 1;
     -webkit-animation: shadow-rock 4s infinite ease-in-out;
     animation: shadow-rock 4s infinite ease-in-out;
 }
 @-webkit-keyframes rock {
     50% {
-        -webkit-transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
-        transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
+        -webkit-transform: translate(calc(-50% + 0.625rem), -50%) rotate(10deg);
+        transform: translate(calc(-50% + 0.625rem), -50%) rotate(10deg);
     }
 }
 @keyframes rock {
     50% {
-        -webkit-transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
-        transform: translate(calc(-50% + 10px), -50%) rotate(10deg);
+        -webkit-transform: translate(calc(-50% + 0.625rem), -50%) rotate(10deg);
+        transform: translate(calc(-50% + 0.625rem), -50%) rotate(10deg);
     }
 }
 @-webkit-keyframes shadow-rock {
     50% {
-        left: calc(50% + 10px);
+        left: calc(50% + 0.625rem);
     }
 }
 @keyframes shadow-rock {
     50% {
-        left: calc(50% + 10px);
+        left: calc(50% + 0.625rem);
     }
 }
 @-webkit-keyframes curve {
