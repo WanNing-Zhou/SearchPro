@@ -28,9 +28,10 @@ html, body {
     display: flow-root;
 }
 #content {
-    height: calc(84% - 16px); /* 减去边框宽度 */
-    border-top: solid #ccc;
-    border-bottom: solid #ccc;
+    /*height: calc(84% - 16px); !* 减去边框宽度 *!*/
+    height: 84%;
+    /*border-top: solid #ccc;*/
+    /*border-bottom: solid #ccc;*/
     position: relative;
 }
 #footer {

@@ -112,4 +112,40 @@
         subSearch()
     })
 
+
+    //生成一句话
+    fetch('https://v1.hitokoto.cn')
+        .then(function (res) {
+            //成功返回json数据
+            return res.json();
+        }).then(function (data) {
+
+
+        //数据渲染到页面
+        document.getElementById('hitokoto-text').innerHTML = data.hitokoto;
+
+        var from_who = data.from_who;
+        var from = data.from;
+
+        //判断作者和来源是否为空
+        if (from_who == null) {
+            from_who = "";
+        }
+        if (from == null) {
+            from = "";
+        }
+
+        //如果都为空就不显示
+        if (from || from_who) {
+            document.getElementById('hitokoto-author').innerHTML = "—— " + from_who + "    [" + from +
+                "]";
+        }
+    })
+        .catch(function (err) {
+            //发生错误打印错误信息
+            console.error(err);
+        })
+
+
+
 })()
