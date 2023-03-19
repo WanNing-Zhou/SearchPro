@@ -30,7 +30,7 @@
             .then(json => {
                 city = json.regeocode.addressComponent.city
                 cityCode = json.regeocode.addressComponent.adcode
-                // console.log(json.regeocode)
+                console.log(json.regeocode)
                 // console.log('city',city)
                 // console.log(json)
                 console.log(cityCode)
@@ -108,8 +108,10 @@
         let date = getDate()
         setInterval(()=>{
             date = getDate()
+            // console.log(date)
             document.querySelector('.headerDate').innerHTML = date.day;
             document.querySelector('.headerTime').innerHTML = date.time;
+            document.querySelector('.Atime').innerHTML = date.time
         },1000)
         drawWeatherInfo('哈尔滨',{
             weather:"晴天",

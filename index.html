@@ -8,7 +8,10 @@
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/fonts/iconfont.css">
-    <link rel="stylesheet" href="./css/container.css">
+    <link rel="stylesheet" href="./css/content.css">
+    <!--文件头部的js代码-->
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/content.js"></script>
 </head>
 <body>
 <!-- header部分用来显示时间天气等内容   -->
@@ -24,39 +27,90 @@
 </header>
 
 <!--contain部分是用来展示文-->
-<section>
+<section id="content">
+<!--    logoBox用来存放动态的Logo-->
     <div id="logoBox">
         <div id="logo">
             <div class='bubble'>
                 <span></span>
             </div>
             <div class='shadow'></div>
-
         </div>
     </div>
 
-    <div class="content">
-        <div class="time">
-            <div class="innertime">
-                <span id="h"></span>:<span id="m"></span>
+<!--  这个盒子是用来存输入框和时间box  -->
+    <div id="SearAndTimeBox">
+        <div id="timeBox">
+            <div class="Atime">
+                14:54
             </div>
         </div>
-        <div class="searchBox">
-            <div class="searching">
-                <input type="text" class="search" placeholder="请输入关键词">
-                <!-- 创建一个button元素 -->
-                <button type="submit" class="search">搜索</button>
+-
+        <!--搜索框-->
+        <div id="searchBox">
+              <div class="searchIcon">
+                  <span class="iconfont icon-bing"></span>
+              </div>
+              <input  class="inputArea" type="text" placeholder="搜索..">
+              <div  class="btn submit">
+                  <span class="iconfont icon-sousuo"></span>
+              </div>
+        </div>
+
+        <!--切换搜索引擎的盒子-->
+        <div id="searchIconsBox">
+            <div sName="baidu">
+                <span sName="baidu" class="iconfont icon-baidu"></span>
+                <span sName="baidu" class="searchName">百度搜索</span>
             </div>
+
+            <div sName="Bing">
+                <span sName="Bing" class="iconfont icon-bing"></span>
+                <span sName="Bing" class="searchName">必应搜索</span>
+            </div>
+            <div sName="Google">
+                <span sName="Google" class="iconfont icon-guge"></span>
+                <span sName="Google" class="searchName">谷歌搜索</span>
+            </div>
+            <div sName="San60">
+                <span sName="San60" class="iconfont icon-icon-test"></span>
+                <span sName="San60" class="searchName">360搜索</span>
+            </div>
+            <div sName="SouGou">
+                <span sName="SouGou" class="iconfont icon-sogou"></span>
+                <span sName="SouGou" class="searchName">搜狗搜索</span>
+            </div>
+        </div>
+
+    </div>
+\
+<!--    一言部分-->
+    <div class="sentencebox">
+        <div class="sentence">
+            <div id="hitokoto" class="hitokoto-fullpage bounce animated">
+                <div class="bracket-left">『</div>
+                <br>
+                <div class="word" id="hitokoto-text"></div>
+                <br>
+                <div class="bracket-right">』</div>
+            </div>
+            <div class="author " id="hitokoto-author"></div>
         </div>
     </div>
 
 </section>
 
 <!--footer 部分标注备案号 -->
-<footer></footer>
-<!--文件头部的js代码-->
-<script src="./js/container.js"></script>
-<script src="./js/header.js"></script>
+<footer id="footer">
+    <div class="footer">
+        <span>©2022 </span>
+        <span>周万宁</span>
+        <span> | </span>
+        <span>v黑ICP备2022004609号</span>
+    </div>
+
+</footer>
+
 
 </body>
 </html>
