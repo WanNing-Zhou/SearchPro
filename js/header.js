@@ -96,8 +96,10 @@
         let date = getDate()
         setInterval(()=>{
             date = getDate()
+            // console.log(date)
             document.querySelector('.headerDate').innerHTML = date.day;
             document.querySelector('.headerTime').innerHTML = date.time;
+            document.querySelector('.Atime').innerHTML = date.time
         },1000)
         //获取地理位置
         getLocation()

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/fonts/iconfont.css">
     <link rel="stylesheet" href="./css/content.css">
+    <!--文件头部的js代码-->
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/content.js"></script>
 </head>
 <body>
 <!-- header部分用来显示时间天气等内容   -->
@@ -25,6 +28,7 @@
 
 <!--contain部分是用来展示文-->
 <section class="content">
+<!--    logoBox用来存放动态的Logo-->
     <div id="logoBox">
         <div id="logo">
             <div class='bubble'>
@@ -33,22 +37,58 @@
             <div class='shadow'></div>
         </div>
     </div>
+
+<!--  这个盒子是用来存输入框和时间box  -->
     <div id="SearAndTimeBox">
         <div id="timeBox">
-            <div class="Atime"></div>
+            <div class="Atime">
+                14:54
+            </div>
+        </div>
+-
+        <!--搜索框-->
+        <div id="searchBox">
+              <div class="searchIcon">
+                  <span class="iconfont icon-bing"></span>
+              </div>
+              <input  class="inputArea" type="text" placeholder="搜索..">
+              <div  class="btn submit">
+                  <span class="iconfont icon-sousuo"></span>
+              </div>
         </div>
 
-        <div id="inputBox">
+        <!--切换搜索引擎的盒子-->
+        <div id="searchIconsBox">
+            <div sName="baidu">
+                <span sName="baidu" class="iconfont icon-baidu"></span>
+                <span sName="baidu" class="searchName">百度搜索</span>
+            </div>
 
+            <div sName="Bing">
+                <span sName="Bing" class="iconfont icon-bing"></span>
+                <span sName="Bing" class="searchName">必应搜索</span>
+            </div>
+            <div sName="Google">
+                <span sName="Google" class="iconfont icon-guge"></span>
+                <span sName="Google" class="searchName">谷歌搜索</span>
+            </div>
+            <div sName="San60">
+                <span sName="San60" class="iconfont icon-icon-test"></span>
+                <span sName="San60" class="searchName">360搜索</span>
+            </div>
+            <div sName="SouGou">
+                <span sName="SouGou" class="iconfont icon-sogou"></span>
+                <span sName="SouGou" class="searchName">搜狗搜索</span>
+            </div>
         </div>
+
     </div>
-
 
 </section>
 
 <!--footer 部分标注备案号 -->
 <footer></footer>
-<!--文件头部的js代码-->
-<script src="./js/header.js"></script>
+
+
 </body>
 </html>
