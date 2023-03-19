@@ -44,6 +44,8 @@
         }
     })
 
+
+
     //body dom对象
     let body = document.querySelector('body');
 
@@ -155,12 +157,16 @@
             weatherInfo.style.width = '12rem'
             weatherInfo.style.opacity = '1';
             logoBox.style.transform = 'translateX(-100%)'
-            weatherInfo = true
+            weatherInfoVisible = true
         }else{
+            logoBox.style.transform = 'translateX(-50%)'
             weatherInfo.style.width = '0rem';
             weatherInfo.style.opacity = '0';
+            weatherInfoVisible = false;
         }
     })
+
+
 })()
 
 

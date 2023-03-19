@@ -5,6 +5,57 @@
     //天气信息接口
     const weatherInfoUrl = 'https://restapi.amap.com/v3/weather/weatherInfo'
 
+    const WEATHERS = {
+        wind:{
+            icon:'icon-feng',
+            weatherArr:['有风','微风','和风','清风','强风/劲风','强风','劲风','疾风','大风','烈风','风暴','狂爆风','飓风','热带风暴','平静']
+        },
+        sunny:{
+            icon: 'icon-lieri',
+            weatherArr: ['晴','未知']
+        },
+        smog:{
+            icon: 'icon-tianqitianqi',
+            weatherArr: ['霾','中度霾','重度霾','严重霾','雾','浓雾','强浓雾','轻雾','大雾','特强浓雾']
+        },
+        rain:{
+            icon: 'icon-dayu',
+            weatherArr: ['阵雨','雷阵雨','雷阵雨并伴有冰雹','小雨','中雨','大雨','大雨','大暴雨','特大暴雨','强阵雨','强雷阵雨','极端降雨','毛毛雨/细雨','雨','小雨-中雨','中雨-大雨','大雨-暴雨','暴雨-大暴雨','大暴雨-特大暴雨','雨雪天气','冻雨',]
+        },
+        snow:{
+            icon: 'icon-zhongxue',
+            weatherArr: ['雨雪天气','雨夹雪','阵雨夹雪','雪','阵雪','小雪','中雪','大雪','暴雪','小雪-中雪','中雪-大雪','大雪-暴雪']
+        },
+        sandStorm: {
+            icon: 'icon-weather-21',
+            weatherArr: ['浮尘', '扬沙', '沙尘暴', '强沙尘暴', '龙卷风']
+        },
+        cloudy:{
+            icon: 'icon-duoyun',
+            weatherArr: ['多云','阴','沙尘暴','晴间多云',]
+        }
+    }
+
+    function getWeatherIcon(weather='晴天'){
+        let res = null;
+        let icon = null;
+        for (let key in WEATHERS){
+            let weatherArr = WEATHERS[key].weatherArr;
+            res = weatherArr.find(el=>el===weather)
+            if (res === weather){
+                icon = WEATHERS[key].icon;
+                break;
+            }
+        }
+        if (!icon){
+            icon='icon-duoyun'
+        }
+        return icon;
+    }
+
+    // console.log('res前')
+    console.log(getWeatherIcon('多云'));
+
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(getAddress);
@@ -13,7 +64,6 @@
         }
     }
 
-    console.log('你好')
 
     //根据地理坐标获取地址
     async function getAddress(position) {
@@ -62,7 +112,6 @@
         console.log('weatherInfo',weatherInfo)
         if (!weatherInfo){
 
-
             weatherInfo={
                 weather:"晴天",
                 temperature:"30"
@@ -79,6 +128,8 @@
     function drawWeatherInfo(city,weatherInfo) {
         document.querySelector('.city').innerHTML =   city;
         document.querySelector('.weather').innerHTML =   weatherInfo.weather;
+        let weaIcon = getWeatherIcon(weatherInfo.weather)
+        document.querySelector('.weaIco').innerHTML = `<span class="iconfont ${weaIcon}"></span>`
         document.querySelector('.temperature').innerHTML =  weatherInfo.temperature+'℃';
     }
 
