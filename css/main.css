@@ -21,17 +21,15 @@ html, body {
     min-height: 100%;
     position: relative;
 }
-#header {
+/*#header {
     color: white;
     height: 8%;
     position: relative;
     display: flow-root;
-}
+}*/
 #content {
     /*height: calc(84% - 16px); !* 减去边框宽度 *!*/
-    height: 84%;
-    /*border-top: solid #ccc;*/
-    /*border-bottom: solid #ccc;*/
+    height: 92%;
     position: relative;
 }
 #footer {
@@ -39,12 +37,16 @@ html, body {
     height: 8%;
 }
 
+#logoAndInfo{
+    width: 100%;
+    position: absolute;
+    top:12%;
+}
 
 #logoBox{
     /*background-color: aqua;*/
     position: absolute;
     left: 50%;
-    top: 18%;
     transform: translateX(-50%);
     width: 7.5rem;
     height: 7.5rem;
@@ -52,11 +54,13 @@ html, body {
     transition: transform 0.3s ease-in-out;
 }
 
-#logo:hover{
-    /*transform: scale(0.8);*/
+#logoBox:hover{
+    transform: translateX(-100%);
 }
 
-#logo .bubble {
+
+
+ #logo .bubble {
     /* 其他样式不变 */
     background: linear-gradient(to bottom right, #2c3e50, #34495e); /* 渐变背景 */
     position: absolute;
@@ -144,7 +148,6 @@ html, body {
     z-index: 1;
     -webkit-animation: shadow-rock 4s infinite ease-in-out;
     animation: shadow-rock 4s infinite ease-in-out;
-    z-index: -1;
 }
 @-webkit-keyframes rock {
     50% {
@@ -192,3 +195,32 @@ html, body {
         transform: rotate(10deg);
     }
 }
+
+
+#weatherInfo{
+    position: absolute;
+    border-radius: 2rem;
+    width: 0rem;/*12rem*/
+    overflow: hidden;
+    height: 8rem;
+    display: flex;
+    left: 50%;
+    background-color: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition:  width 0.5s linear,opacity 0.1s;
+}
+
+
+.headerTime{
+    font-size: 3rem;
+}
+
+.headerTime .weather{
+    width: 20rem;
+    height: 2.5rem;
+    overflow: hidden;
+}
+

@@ -124,13 +124,14 @@
         //数据渲染到页面
         document.getElementById('hitokoto-text').innerHTML = data.hitokoto;
 
-        var from_who = data.from_who;
-        var from = data.from;
+        let from_who = data.from_who;
+        let from = data.from;
 
         //判断作者和来源是否为空
         if (from_who == null) {
             from_who = "";
         }
+
         if (from == null) {
             from = "";
         }
@@ -146,6 +147,20 @@
             console.error(err);
         })
 
-
-
+    let logoBox = document.querySelector('#logoBox');
+    let weatherInfo = document.querySelector('#weatherInfo')
+    let weatherInfoVisible = false
+    logoBox.addEventListener('click',()=>{
+        if (searchBoxVisible&&!weatherInfoVisible){
+            weatherInfo.style.width = '12rem'
+            weatherInfo.style.opacity = '1';
+            logoBox.style.transform = 'translateX(-100%)'
+            weatherInfo = true
+        }else{
+            weatherInfo.style.width = '0rem';
+            weatherInfo.style.opacity = '0';
+        }
+    })
 })()
+
+

@@ -15,28 +15,38 @@
 </head>
 <body>
 <!-- header部分用来显示时间天气等内容   -->
-<header id="header">
-    <div id="weatherInfo">
-        <span class="city">城市</span>
-        <span class="weather">天气晴</span>
-        <span class="iconfont icon-bing"></span>
-        <span class="temperature">温度:</span>
-        <span class="headerDate">2023年3月18日</span>
-        <span class="headerTime">14:24</span>
-    </div>
-</header>
+<!--<header id="header">-->
+
+<!--</header>-->
 
 <!--contain部分是用来展示文-->
 <section id="content">
 <!--    logoBox用来存放动态的Logo-->
-    <div id="logoBox">
-        <div id="logo">
-            <div class='bubble'>
-                <span></span>
+    <div id="logoAndInfo">
+        <div id="logoBox">
+            <div id="logo">
+                <div class='bubble'>
+                    <span></span>
+                </div>
+                <div class='shadow'></div>
             </div>
-            <div class='shadow'></div>
         </div>
+
+        <div id="weatherInfo">
+            <div class="headerTime">14:24</div>
+            <div class="dateInfo">
+                <span class="headerDate">2023年3月18日</span>
+            </div>
+            <div class="weatherInfo">
+                <span class="city">哈尔滨</span>
+                <span class="weather">晴</span>
+                <span class="iconfont icon-bing"></span>
+                <span class="temperature">19℃</span>
+            </div>
+        </div>
+
     </div>
+
 
 <!--  这个盒子是用来存输入框和时间box  -->
     <div id="SearAndTimeBox">
@@ -45,7 +55,6 @@
                 14:54
             </div>
         </div>
--
         <!--搜索框-->
         <div id="searchBox">
               <div class="searchIcon">
@@ -83,7 +92,6 @@
         </div>
 
     </div>
-\
 <!--    一言部分-->
     <div class="sentencebox">
         <div class="sentence">
