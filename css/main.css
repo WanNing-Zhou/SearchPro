@@ -26,7 +26,9 @@ html, body {
     height: 8%;
     position: relative;
     display: flow-root;
+
 }
+
 #content {
     /*height: calc(84% - 16px); !* 减去边框宽度 *!*/
     height: 84%;

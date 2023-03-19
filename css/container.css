@@ -15,7 +15,7 @@
     transform: translateX(-50%) translateY(-50%);
     user-select:none;
     border-radius: 30px;
-    transition: opacity 3s ,width 3s, height 3s;
+    transition: opacity 0.5s ,width 0.5s, height 0.5s;
 }
 /* 创建一个容器元素，设置宽高和背景图片 */
 
@@ -28,7 +28,7 @@
     text-align: center;
     /* 在子元素上应用backdrop-filter属性，设置模糊半径为10px */
     backdrop-filter: blur(2px);
-    transition:  opacity 1s;
+    transition:  opacity 0.5s;
 }
 
 
@@ -44,7 +44,7 @@
     transform: translateX(-50%) translateY(-50%);
     opacity: 0 ;
     text-align: center;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 
 }
 .search {

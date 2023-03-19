@@ -33,11 +33,19 @@ window.onload = function(){
                     time.style.height = '4rem'
                     innerTime.style.opacity = '0';
 
+
+                    setTimeout(()=>{
+                        searchBox.style.opacity = '1';
+
+                    },500)
+
                 }
                 else{
+                    searchBox.style.opacity = '0'
                     time.style.width = '10rem'
                     time.style.height = '7rem'
                     innerTime.style.opacity = '1'
+
                     // searchBox.style.width = '10rem';
                     // searchBox.style.height = '7rem';
                     // searching.style.opacity = '1';

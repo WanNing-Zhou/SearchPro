@@ -121,6 +121,7 @@
         getLocation()
     }
     drawInfo()
+
 })();
 
 
