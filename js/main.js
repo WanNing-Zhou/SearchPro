@@ -4,10 +4,15 @@ function  calculationFont(){
     let screenWidth = document.documentElement.clientWidth;
     //如果屏幕不为移动端,则设置浏览器的默认样式
     let fontSize = 16;
-    if (screenWidth < 810) {
+    if (screenWidth < 450) {
         console.log(screenWidth)
         // 计算根元素字体大小，这里假设设计图宽度为750px，根元素字体大小为10px
-        fontSize = screenWidth/28;
+        fontSize = screenWidth/34;
+    }else if(screenWidth<850){
+        fontSize = screenWidth/52
+    }
+    else if(screenWidth > 1920){
+        fontSize = 24;
     }
 // 设置给html标签
     document.documentElement.style.fontSize = fontSize + 'px';

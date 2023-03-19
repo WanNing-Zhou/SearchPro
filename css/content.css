@@ -2,10 +2,10 @@
 #SearAndTimeBox{
     position: absolute;
     width: 100%;
-    height: 8rem;
+    height: 6rem;
     background: transparent;
     left: 50%;
-    top: 34%;
+    top: 10.5rem;
     transform: translateX(-50%);
 }
 
@@ -15,23 +15,25 @@
     /*background-color: rgba(255, 228, 196, 0.1);*/
     border-radius: 1.5rem;
     position: absolute;
-    top: 50%;
+    top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    transition: width 0.5s,height 0.5s,background-color 0.5s,color 0.5s;
+    background-color: rgba(255, 228, 196, 0.1);
+    transition: width 0.5s,height 0.5s,background-image 0.5s,color 0.5s;
     /*filter: blur(1px);*/
     overflow: hidden;
     color: white;
     z-index: 1;
+    /*width: 9rem;*/
+    /*height: 6rem;*/
+
 
 }
 
 #timeBox:after{
     content: "";
     position: absolute;
-    width: 9rem;
-    height: 6rem;
-    background-color: rgba(255, 228, 196, 0.1);
+
     filter: blur(0.75);
     display: block;
     z-index: -1;
@@ -40,9 +42,12 @@
 
 #timeBox:hover{
     width: 72%;
+    max-width: 50rem;
     height: 3rem;
     filter:blur(0);
-    background-color: rgba(255, 228, 196, 1);
+    background-image: linear-gradient(135deg,#cf94c5,#9bdbe1);
+
+    /*background-color: rgba(255, 228, 196, 1);*/
     box-shadow: 0 0 3rem grey;
     color: #c0c6c9;
 }
@@ -63,18 +68,29 @@
     /*transform: scale(0.8);*/
 }
 
-#searchBox{
+#searchAndIcons{
+    position: absolute;
     width: 72%;
+    max-width: 50rem;
+    background: transparent;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#searchBox{
+    margin-top: 1rem;
+    max-width: 50rem;
+    width: 100%;
     height: 3rem;
     /*background-color: rgba(255, 228, 196, 0.1);*/
     background-image: linear-gradient(135deg,#cf94c5,#9bdbe1);
-    background-color: rgba(255, 228, 196, 1);
-    border:2px solid black;
+    /*background-color: rgba(255, 228, 196, 1);*/
     border-radius: 3rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%,-50%);*/
     /*filter: blur(1px);*/
     overflow: hidden;
     opacity: 0;
@@ -86,13 +102,13 @@
     align-items: center;
     justify-content: space-around;
     vertical-align: center;
-    border: 0.2rem solid rgba(46,64,82,0.8);
+    border: 0.1rem solid rgba(46,64,82,0.8);
 }
 
 #searchBox:hover{
     filter:blur(0);
-    box-shadow: 0 0 3rem grey;
-    transition-duration: 1s;
+    box-shadow: 0 0 1.5rem grey;
+    transition-duration: 0.1s;
 }
 
 .searchIcon{
@@ -150,12 +166,12 @@
 }
 
 #searchIconsBox{
-    position: absolute;
+    /*position: absolute;*/
     width:10rem;
     height: 0rem;
     border-radius: 2rem;
-    top: 6rem;
-    left: 14%;
+    /*top: 6rem;*/
+    /*left: 14%;*/
     background-color: rgba(255, 255, 255, .3);
     overflow: hidden;
     transition: height .3s linear,opacity .3s;
@@ -182,7 +198,7 @@
 
 #searchIconsBox div:hover{
     -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(190,172,207, 0.83);
+    background-color: rgba(128, 128, 128, 0.49);
     transition-duration:.5s;
 }
 
@@ -191,7 +207,7 @@
 
 .sentencebox{
     position: absolute;
-    bottom: 20%;
+    bottom: 10rem;
     width: 100%;
 }
 
@@ -243,6 +259,15 @@
     text-align: center;
     position: absolute;
     bottom: 0;
+    width: 24rem;
+    height: 1.5rem;
+    border-radius:1.5rem ;
+    line-height: 1.5rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    background-color: rgba(204, 204, 204, 0.2);
 }
+
 
 

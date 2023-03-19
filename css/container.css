@@ -3,6 +3,7 @@
     text-align: center;
 
 }
+
 .time{
     height: 7rem;
     width: 10rem;
@@ -39,7 +40,7 @@
     height: 4rem;
     /* background-color: bisque; */
     position: absolute;
-    top: 45%;
+    top: 12.5rem;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     opacity: 0 ;
@@ -47,6 +48,7 @@
     transition: opacity 0.5s;
 
 }
+/*搜索框*/
 .search {
     width: 50rem;
     height: 3rem;
