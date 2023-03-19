@@ -59,8 +59,20 @@
                 console.log(error)
             })
 
-        drawWeatherInfo(city,weatherInfo)
+        console.log('weatherInfo',weatherInfo)
+        if (!weatherInfo){
 
+
+            weatherInfo={
+                weather:"晴天",
+                temperature:"30"
+            }
+        }
+
+        if (!city||city === ''){
+            city='哈尔滨'
+        }
+        drawWeatherInfo(city,weatherInfo)
     }
 
     //将信息绘制到页面
@@ -113,10 +125,15 @@
             document.querySelector('.headerTime').innerHTML = date.time;
             document.querySelector('.Atime').innerHTML = date.time
         },1000)
+        drawWeatherInfo('哈尔滨',{
+            weather:"晴天",
+            temperature:"30"
+        })
         //获取地理位置
         getLocation()
     }
     drawInfo()
+
 })();
 
 

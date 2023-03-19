@@ -1,0 +1,78 @@
+
+.content{
+    text-align: center;
+
+}
+.time{
+    height: 7rem;
+    width: 10rem;
+    background-color:rgba(240, 248, 255,0.2);
+    line-height: 7rem;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    font-size: 2.5rem;
+    transform: translateX(-50%) translateY(-50%);
+    user-select:none;
+    border-radius: 30px;
+    transition: opacity 0.5s ,width 0.5s, height 0.5s;
+}
+/* 创建一个容器元素，设置宽高和背景图片 */
+
+/* 创建一个子元素，设置宽高、边框、文字和居中对齐 */
+.innertime {
+    width: 10rem;
+    height: 7rem;
+    /* border: 0.1rem solid rgb(15, 4, 80); */
+    line-height: 7rem;
+    text-align: center;
+    /* 在子元素上应用backdrop-filter属性，设置模糊半径为10px */
+    backdrop-filter: blur(2px);
+    transition:  opacity 0.5s;
+}
+
+
+/* 搜索框 */
+
+.searchBox{
+    width: 60rem;
+    height: 4rem;
+    /* background-color: bisque; */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0 ;
+    text-align: center;
+    transition: opacity 0.5s;
+
+}
+.search {
+    width: 50rem;
+    height: 3rem;
+    border: none;
+    background-color: lightgray;
+    border-radius: 5px;
+
+}
+.search[type="submit"]{
+    width: 5rem;
+    height: 3rem;
+    border-radius: 5px;
+}
+
+
+
+
+/* 设置隐藏与显示 */
+/* .show{
+    display: block;
+    opacity: 1;
+    transition: opacity 2s;
+}
+.hid{
+    display: none;
+    opacity: 1;
+    transition: opacity 2s;
+} */
+

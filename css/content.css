@@ -86,11 +86,13 @@
     align-items: center;
     justify-content: space-around;
     vertical-align: center;
+    border: 0.2rem solid rgba(46,64,82,0.8);
 }
 
 #searchBox:hover{
     filter:blur(0);
     box-shadow: 0 0 3rem grey;
+    transition-duration: 1s;
 }
 
 .searchIcon{
@@ -99,7 +101,7 @@
     height: 3rem;
     border-radius: 50%;
     color: #9fd7df;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75),inset 0 0 10px rgba(0, 0, 0, 0.68);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75),inset 0 0 10px rgba(0, 0, 0, 0.3);
 
     margin-left: 0.5rem;
 }
@@ -134,7 +136,7 @@
     height: 3rem;
     border-radius: 3rem;
     color: #cf94c5;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75),inset 0 0 10px rgba(0, 0, 0, 0.68);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75),inset 0 0 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
@@ -149,12 +151,12 @@
 
 #searchIconsBox{
     position: absolute;
-    width:13rem;
+    width:10rem;
     height: 0rem;
     border-radius: 2rem;
     top: 6rem;
     left: 14%;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .3);
     overflow: hidden;
     transition: height .3s linear,opacity .3s;
     backdrop-filter: blur(10px);
@@ -175,11 +177,13 @@
     width: 100%;
     text-align: center;
     flex-grow: 1;
+    padding: 0;
 }
 
 #searchIconsBox div:hover{
     -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(128, 128, 128, 0.83);
+    background-color: rgba(190,172,207, 0.83);
+    transition-duration:.5s;
 }
 
 
@@ -195,7 +199,7 @@
     position: absolute;
     width: 24rem;
     padding:1rem 1rem;
-    background-color:rgba(0, 0, 0, 0.3);
+    background-color:rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
     color: rgba(255, 255, 255, 0.9);
     left: 50%;
