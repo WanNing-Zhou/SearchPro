@@ -211,20 +211,33 @@
     width: 100%;
 }
 
+.sentencebox:hover{
+    transform: rotate3d(1,1,0,15deg);
+}
+
 .sentence{
     position: absolute;
     width: 24rem;
     padding:1rem 1rem;
-    background-color:rgba(0, 0, 0, 0.2);
+
     border-radius: 1rem;
     color: rgba(255, 255, 255, 0.9);
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 0 0  1rem rgba(51, 51, 51, 0.1);
+    transition: .5s;
+}
+
+.sentence:hover{
+    background-color:rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0  1rem rgba(51, 51, 51, 0);
+
 }
 
 .hitokoto-fullpage{
     width:24rem;
     position: relative;
+    /*box-shadow: 0 0 1rem rgba(51, 51, 51, 0.1);*/
 }
 
 
