@@ -18,6 +18,7 @@
     timeBox.addEventListener('click', () => {
 
         bgBox.style.transform = 'scale(1.1)';
+        // 点击模糊
         bgBox.style.filter = 'blur(10px)';
 
         searchBox.style.opacity = '1'; //点击的时候先让这个显示
@@ -26,9 +27,22 @@
         sentenceBox.style.opacity = '1'; //点击的时候显示一言部分
         searchBoxVisible = true; //将可见性变为0
         searchInput.focus(); //点击的时候让输入框自动获取焦点
+        
 
 
     })
+    //设置模糊
+    function filterSet (){
+
+        searchInput.addEventListener("click",function(){
+            bgBox.style.filter = 'blur(10px)';
+        });
+        searchInput.addEventListener("blur",function(){
+            // alert("111");
+            bgBox.style.filter = "none";
+        });
+    }
+    filterSet();
 
     // 输入框中图标元素
     let searchIcon = document.querySelector('.searchIcon')
