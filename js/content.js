@@ -22,7 +22,7 @@
         bgBox.style.filter = 'blur(10px)';
 
         searchBox.style.opacity = '1'; //点击的时候先让这个显示
-        console.log(sentenceBox)
+        console.log(sentenceBox);
         timeBox.style.display = 'none' //将这个元素不显示,方式对输入栏干扰
         sentenceBox.style.opacity = '1'; //点击的时候显示一言部分
         searchBoxVisible = true; //将可见性变为0
@@ -36,10 +36,17 @@
 
         searchInput.addEventListener("click",function(){
             bgBox.style.filter = 'blur(10px)';
+            searchBox.style.opacity = '1';
+            searchBoxVisible = true;
+            sentenceBox.style.opacity = '1';
         });
         searchInput.addEventListener("blur",function(){
-            // alert("111");
+
             bgBox.style.filter = "none";
+            timeBox.style.display = 'block';
+            searchBox.style.opacity = '0';
+            sentenceBox.style.opacity = '0';
+
         });
     }
     filterSet();
