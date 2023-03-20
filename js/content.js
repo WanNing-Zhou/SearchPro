@@ -10,12 +10,24 @@
     // 输入框元素
     let searchInput = document.querySelector('.inputArea');
 
+    let sentenceBox = document.querySelector('.sentencebox');
+
+    let bgBox = document.querySelector('#backImgBox');
+
+
     timeBox.addEventListener('click', () => {
 
+        bgBox.style.transform = 'scale(1.1)';
+        bgBox.style.filter = 'blur(10px)';
+
         searchBox.style.opacity = '1'; //点击的时候先让这个显示
+        console.log(sentenceBox)
         timeBox.style.display = 'none' //将这个元素不显示,方式对输入栏干扰
+        sentenceBox.style.opacity = '1'; //点击的时候显示一言部分
         searchBoxVisible = true; //将可见性变为0
         searchInput.focus(); //点击的时候让输入框自动获取焦点
+
+
     })
 
     // 输入框中图标元素

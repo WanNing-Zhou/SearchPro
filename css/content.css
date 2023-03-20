@@ -209,6 +209,10 @@
     position: absolute;
     bottom: 10rem;
     width: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1;
+
 }
 
 .sentencebox:hover{
