@@ -15,80 +15,52 @@
     let bgBox = document.querySelector('#backImgBox');
 
 
-    timeBox.addEventListener('click', () => {
-
-        bgBox.style.transform = 'scale(1.1)';
-        // 点击模糊
-        bgBox.style.filter = 'blur(10px)';
-
-        searchBox.style.opacity = '1'; //点击的时候先让这个显示
-        console.log(sentenceBox);
-        timeBox.style.display = 'none' //将这个元素不显示,方式对输入栏干扰
-        sentenceBox.style.opacity = '1'; //点击的时候显示一言部分
-        searchBoxVisible = true; //将可见性变为0
-        searchInput.focus(); //点击的时候让输入框自动获取焦点
-        
-
-
-    })
-    //设置模糊
-    function filterSet (){
-
-        searchInput.addEventListener("click",function(){
-            bgBox.style.filter = 'blur(10px)';
-            searchBox.style.opacity = '1';
-            searchBoxVisible = true;
-            sentenceBox.style.opacity = '1';
-        });
-        searchInput.addEventListener("blur",function(){
-
-            bgBox.style.filter = "none";
-            timeBox.style.display = 'block';
-            searchBox.style.opacity = '0';
-            sentenceBox.style.opacity = '0';
-
-        });
-    }
-    filterSet();
-
+    //body dom对象
+    let body = document.querySelector('body');
     // 输入框中图标元素
     let searchIcon = document.querySelector('.searchIcon')
     let searchIconsBox = document.querySelector('#searchIconsBox')
     let sIBVis = false; //searchIconsBox的可见性
-    //展示图标框
-    function searchIconBoxVisible() {
-        searchIconsBox.style.height = 18 + 'rem';
-        searchIconsBox.style.opacity = '1';
-    }
+    /**
+     * 这个监听器会监听timeBox的鼠标点击事件,
+     * 如果点击的时候会将元素隐藏,并将主体内容显示出来
+     * 后期会将里面的内容分装成函数
+     * 来控制主体内容的显示与隐藏
+     */
 
-    //隐藏图标框
-    function searchIconBoxHidden() {
-        searchIconsBox.style.height = '0rem';
-        searchIconsBox.style.opacity = '0';
-    }
+    let logoBox = document.querySelector('#logoBox');
+    let weatherInfo = document.querySelector('#weatherInfo')
+    let weatherInfoVisibleFlag = false
 
-    //添加点击事件
-    searchIcon.addEventListener('click', (event) => {
+    let subBtn = document.querySelector('.submit');
 
-        if (!sIBVis) {
-            event.stopPropagation() //阻止时事件冒泡
-            searchIconBoxVisible();
-            sIBVis = true; //表示图标框可见
+    let hitokotoText =  document.getElementById('hitokoto-text')
+
+
+
+    /*
+        //设置模糊
+        function filterSet (){
+
+            searchInput.addEventListener("click",function(){
+                bgBox.style.filter = 'blur(10px)';
+                searchBox.style.opacity = '1';
+                searchBoxVisible = true;
+                sentenceBox.style.opacity = '1';
+            });
+            searchInput.addEventListener("blur",function(){
+
+                bgBox.style.filter = "none";
+                timeBox.style.display = 'block';
+                searchBox.style.opacity = '0';
+                sentenceBox.style.opacity = '0';
+
+            });
         }
-    })
+        filterSet();
+        */
 
-
-
-    //body dom对象
-    let body = document.querySelector('body');
-
-    //隐藏图标框
-    body.addEventListener('click', () => {
-        if (sIBVis) {
-            searchIconBoxHidden();
-            sIBVis = false
-        }
-    })
+    let contentVisibleFlag = false; //主体内容是否可见
 
     //将搜索引擎封装再一个对象里
     const searchs = {
@@ -117,6 +89,118 @@
     //默认使用bing搜索引擎
     let sName = searchs.Bing;
     let sIcon = searchs.Bing.icon;
+
+    sentenceBox.addEventListener('click',(even)=>{
+        even.stopPropagation()
+    })
+
+    //天气内容显示
+    function weatherInfoVisible(){
+        weatherInfo.style.width = '12rem'
+        weatherInfo.style.opacity = '1';
+        logoBox.style.transform = 'translateX(-100%)'
+        weatherInfoVisibleFlag = true
+    }
+    //天气内容不显示
+    function weatherInfoDisVisible(){
+        logoBox.style.transform = 'translateX(-50%)'
+        weatherInfo.style.width = '0rem';
+        weatherInfo.style.opacity = '0';
+        weatherInfoVisibleFlag = false;
+    }
+
+    //主体内容显示
+    function contentVisible (){
+        bgBox.style.transform = 'scale(1.1)';
+        // 点击模糊
+        bgBox.style.filter = 'blur(10px)';
+
+        searchBox.style.opacity = '1'; //点击的时候先让这个显示
+        // console.log(sentenceBox);
+        timeBox.style.display = 'none' //将这个元素不显示,方式对输入栏干扰
+        sentenceBox.style.opacity = '1'; //点击的时候显示一言部分
+        searchBoxVisible = true; //将可见性变为0
+        searchInput.focus(); //点击的时候让输入框自动获取焦点
+    }
+
+    //主体内容隐藏
+    function contentDisVisible(){
+
+        bgBox.style.transform = 'scale(1)';
+        bgBox.style.filter = 'blur(0px)';
+        searchBox.style.opacity = '0'; //点击的时候先让这个显示
+        timeBox.style.display = 'block' //将这个元素不显示,方式对输入栏干扰
+        sentenceBox.style.opacity = '0'; //点击的时候显示一言部分
+        searchBoxVisible = false; //将可见性变为0
+        searchInput.blur(); //点击的时候让输入框自动获取焦点
+        searchInput.value = ""; //将内容清空
+        weatherInfoDisVisible()
+    }
+
+
+    //展示图标框
+    function searchIconBoxVisible() {
+        searchIconsBox.style.height = 18 + 'rem';
+        searchIconsBox.style.opacity = '1';
+    }
+
+    //隐藏图标框
+    function searchIconBoxHidden() {
+        searchIconsBox.style.height = '0rem';
+        searchIconsBox.style.opacity = '0';
+        sIBVis = false
+    }
+
+
+    //搜索功能
+    function subSearch() {
+        let s = searchInput.value;
+        //跳转
+        location.href = sName.url + s;
+    }
+
+    searchBox.addEventListener('click',(event)=>{
+        event.stopPropagation()
+    })
+
+    //点击显示主体内容
+    timeBox.addEventListener('click', (event) => {
+        if(!contentVisibleFlag){
+            contentVisible()
+            contentVisibleFlag = true;
+            event.stopPropagation()
+        }
+    })
+
+
+    //点击显示图标框
+    searchIcon.addEventListener('click', (event) => {
+
+        event.stopPropagation() //阻止时事件冒泡
+        if (!sIBVis) {
+            searchIconBoxVisible();
+            sIBVis = true; //表示图标框可见
+        }else{
+            searchIconBoxHidden();
+            sIBVis = false;
+        }
+    })
+
+
+
+    //隐藏图标框
+    body.addEventListener('click', () => {
+        if (sIBVis) {
+            searchIconBoxHidden();
+
+        }
+        if(contentVisibleFlag){
+            contentDisVisible()
+            contentVisibleFlag = false;
+        }
+    })
+
+    //点击切换搜索引擎
     searchIconsBox.addEventListener('click', (e) => {
         let name = e.target.getAttribute('sName');
         sName = searchs[name]
@@ -126,25 +210,23 @@
         if (sName) {
             searchIcon.innerHTML = `<span class="iconfont ${sIcon}"></span>`
         }
+        searchIconBoxHidden();
+        e.stopPropagation()//阻止事件冒泡
     })
 
-    let subBtn = document.querySelector('.submit');
-
-    //搜索功能
-    function subSearch() {
-        let s = searchInput.value;
-        //跳转
-        location.href = sName.url + s;
-    }
-
+    // 点击回车会发送请求
     body.addEventListener('keyup',(e)=>{
-        if ((e.key==='Enter')&&searchInput.value&&searchInput.value!==''){
+        if ((e.key==='Enter')&&searchInput.value&&searchInput.value!==''&&contentVisibleFlag){
            subSearch();
         }
     })
 
-    subBtn.addEventListener('click',()=>{
-        subSearch()
+
+    subBtn.addEventListener('click',(event)=>{
+        if (searchInput.value&&searchInput.value!==''&&contentVisibleFlag){
+            subSearch();
+        }
+        event.stopPropagation()
     })
 
 
@@ -155,9 +237,8 @@
             return res.json();
         }).then(function (data) {
 
-
         //数据渲染到页面
-        document.getElementById('hitokoto-text').innerHTML = data.hitokoto;
+       hitokotoText.innerHTML = data.hitokoto;
 
         let from_who = data.from_who;
         let from = data.from;
@@ -182,23 +263,17 @@
             console.error(err);
         })
 
-    let logoBox = document.querySelector('#logoBox');
-    let weatherInfo = document.querySelector('#weatherInfo')
-    let weatherInfoVisible = false
-    logoBox.addEventListener('click',()=>{
-        if (searchBoxVisible&&!weatherInfoVisible){
-            weatherInfo.style.width = '12rem'
-            weatherInfo.style.opacity = '1';
-            logoBox.style.transform = 'translateX(-100%)'
-            weatherInfoVisible = true
-        }else{
-            logoBox.style.transform = 'translateX(-50%)'
-            weatherInfo.style.width = '0rem';
-            weatherInfo.style.opacity = '0';
-            weatherInfoVisible = false;
-        }
-    })
 
+
+    logoBox.addEventListener('click',(event)=>{
+        if (searchBoxVisible&&!weatherInfoVisibleFlag){
+            weatherInfoVisible()
+        }else{
+            weatherInfoDisVisible();
+        }
+        event.stopPropagation() //阻止事件冒泡
+
+    })
 
 })()
 
