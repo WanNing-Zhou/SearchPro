@@ -192,9 +192,8 @@
     body.addEventListener('click', () => {
         if (sIBVis) {
             searchIconBoxHidden();
-
         }
-        if(contentVisibleFlag){
+        else if(contentVisibleFlag){
             contentDisVisible()
             contentVisibleFlag = false;
         }

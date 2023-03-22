@@ -14,6 +14,9 @@ function  calculationFont(){
     else if(screenWidth > 1920){
         fontSize = 24;
     }
+    else if(screenWidth > 2100){
+        fontSize = screenWidth / 79
+    }
 // 设置给html标签
     document.documentElement.style.fontSize = fontSize + 'px';
     console.log(fontSize)
