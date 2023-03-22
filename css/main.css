@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
 }
 html, body {
     height: 100%;
@@ -72,7 +73,7 @@ html, body {
 }
 
 #logoBox:hover{
-    transform: translateX(-100%);
+    transform: translateX(-100%)!important;
 }
 
 
@@ -99,7 +100,9 @@ html, body {
 }
 
 #logo .bubble:hover{
-    transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);
+    /*transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);*/
+    /*transform: translate(-50%, -50%) rotate(-10deg) scale(0.9)!important;*/
+    /*transform: translate(-50%, -50%)!important;*/
 }
 
 /* 给水泡添加一个高光效果 */

@@ -117,7 +117,11 @@
 
         searchBox.style.opacity = '1'; //点击的时候先让这个显示
         // console.log(sentenceBox);
-        timeBox.style.display = 'none' //将这个元素不显示,方式对输入栏干扰
+        // timeBox.style.display = 'none' //将这个元素不显示,方式对输入栏干扰
+        timeBox.style.zIndex = '-1'
+        timeBox.style.opacity = '0'
+        timeBox.style.width = '72%'
+        // timeBox.style.width = '50rem'
         sentenceBox.style.opacity = '1'; //点击的时候显示一言部分
         searchBoxVisible = true; //将可见性变为0
         searchInput.focus(); //点击的时候让输入框自动获取焦点
@@ -129,7 +133,11 @@
         bgBox.style.transform = 'scale(1)';
         bgBox.style.filter = 'blur(0px)';
         searchBox.style.opacity = '0'; //点击的时候先让这个显示
-        timeBox.style.display = 'block' //将这个元素不显示,方式对输入栏干扰
+        // timeBox.style.display = 'block' //将这个元素不显示,方式对输入栏干扰
+        timeBox.style.zIndex = '1'
+        timeBox.style.opacity = '1'
+        timeBox.style.width = '12rem'
+
         sentenceBox.style.opacity = '0'; //点击的时候显示一言部分
         searchBoxVisible = false; //将可见性变为0
         searchInput.blur(); //点击的时候让输入框自动获取焦点
