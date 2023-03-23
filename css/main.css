@@ -20,7 +20,7 @@ html, body {
     left: 0;
     position: fixed;
     /*background-image: linear-gradient(135deg,#81ffef,#f067b4);*/
-    background-image: url("../imgs/bgimg2.png");
+    /*background-image: url("../imgs/bgimg2.png");*/
     background-size: 100% 100%;
     /*filter:blur(10px);*/
     z-index: -10;
@@ -72,9 +72,11 @@ html, body {
     transition: transform 0.3s ease-in-out;
 }
 
+/*
 #logoBox:hover{
     transform: translateX(-100%)!important;
 }
+*/
 
 
 
@@ -99,11 +101,11 @@ html, body {
     cursor: pointer;
 }
 
-#logo .bubble:hover{
+/*#logo .bubble:hover{*/
     /*transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);*/
     /*transform: translate(-50%, -50%) rotate(-10deg) scale(0.9)!important;*/
     /*transform: translate(-50%, -50%)!important;*/
-}
+/*}*/
 
 /* 给水泡添加一个高光效果 */
 #logo .bubble span {
