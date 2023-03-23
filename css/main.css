@@ -234,6 +234,7 @@ html, body {
     opacity: 0;
     transition:  width 0.5s linear,opacity 0.1s;
     user-select: none;
+    white-space: nowrap; /*文字超出不换行, 防止换行引发的bug*/
 }
 
 
@@ -241,9 +242,13 @@ html, body {
     font-size: 3rem;
 }
 
-.headerTime .weather{
+/*.headerTime .weather{
     width: 20rem;
     height: 2.5rem;
     overflow: hidden;
-}
+}*/
 
+/*.weatherInfo{*/
+/*    width: 20rem;*/
+/*    height: 1.1rem ;*/
+/*}*/
