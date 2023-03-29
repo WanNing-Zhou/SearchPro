@@ -4,6 +4,8 @@
     const regeoUrl = 'https://restapi.amap.com/v3/geocode/regeo'
     //天气信息接口
     const weatherInfoUrl = 'https://restapi.amap.com/v3/weather/weatherInfo'
+    //免费七天天气接口,不传参数默认根据ip返回当前城市天气
+    const weatherSevenDay = 'https://www.yiketianqi.com/free/week?unescape=1&appid=65142175&appsecret=U70OoTHF';
 
     const WEATHERS = {
         wind:{
@@ -12,7 +14,7 @@
         },
         sunny:{
             icon: 'icon-lieri',
-            weatherArr: ['晴','未知']
+            weatherArr: ['晴','未知',]
         },
         smog:{
             icon: 'icon-tianqitianqi',
@@ -32,7 +34,7 @@
         },
         cloudy:{
             icon: 'icon-duoyun',
-            weatherArr: ['多云','阴','沙尘暴','晴间多云',]
+            weatherArr: ['多云','阴','沙尘暴','晴间多云','晴转多云',]
         }
     }
 
@@ -124,6 +126,34 @@
         drawWeatherInfo(city,weatherInfo)
     }
 
+    function getWeatherFree(){
+         fetch(weatherSevenDay,{
+            method:'get',
+        }).then(response=>
+            response.json()
+         ).then(res=>{
+             let city = res.city
+             console.log(res)
+             let weatherInfo = {
+                 weather:res.data[0].wea,
+                 temperature: res.data[0].tem_night + '~' + res.data[0].tem_day
+             }
+
+             if (!weatherInfo){
+
+                 weatherInfo={
+                     weather:"晴天",
+                     temperature:"30"
+                 }
+             }
+
+             if (!city||city === ''){
+                 city='哈尔滨'
+             }
+             drawWeatherInfo(city,weatherInfo)
+         })
+    }
+
     //将信息绘制到页面
     function drawWeatherInfo(city,weatherInfo) {
         document.querySelector('.city').innerHTML =   city;
@@ -178,13 +208,15 @@
         },1000)
         drawWeatherInfo('哈尔滨',{
             weather:"晴天",
-            temperature:"30"
+            temperature:"19"
         })
         //获取地理位置
-        getLocation()
+        //使用http协议是无法获取地理位置得
+        // getLocation()
     }
     drawInfo()
 
+    getWeatherFree();
 })();
 
 
